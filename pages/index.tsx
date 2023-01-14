@@ -220,7 +220,7 @@ setGameOver(false)
       <div >
         <div className='flex flex-col justify-center items-center'>
         { inPlay && (
-            <div className='text-center border-4 m-0 border-orange-500 p-4 bg-black  text-orange-500 m-6 rounded-lg'>
+            <div className='text-center border-4  border-orange-500 p-4 bg-black  text-orange-500 rounded-lg'>
             <h1 className='text-2xl font-bold mb-4'>Scoreboard</h1>
             <div className='flex justify-center items-center space-x-20'>
             <div className='flex flex-col items-center'>
