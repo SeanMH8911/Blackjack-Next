@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function Home() {
@@ -170,11 +170,13 @@ function newCard() {
  function newDealerCard(){
   let newDealerCard = generateCard();
   setDealerTotal(dealerTotal += newDealerCard.value)
+  console.log(newDealerCard.value);
+  
     return setDealer([newDealerCard].concat(dealer))
 }
 
 function stick() {
-  while (dealerTotal <= 17 && dealerTotal <= 21){
+  while (dealerTotal <= 16){
    newDealerCard()
   }
    winnerCalculation()
@@ -198,10 +200,11 @@ function winnerCalculation() {
 }
 setGameOver(true)
 }
-
+useEffect(() => {
 if (playerTotal > 21){
-  stick()
+stick()
 }
+},[playerTotal])
 
 
 function newGame() {
@@ -278,18 +281,18 @@ setGameOver(false)
 
         <div className='space-x-4'>
           <button onClick={startGame} 
-        className='mt-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>Start Game</button>
+        className='mt-4 mb-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>Start Game</button>
         { inPlay && (
           <button onClick= {newGame}
-        className='mt-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>New Game</button>
+        className='mt-4 mb-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>New Game</button>
         )}
         { inPlay && (
           <button onClick= {newCard}
-        className='mt-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>New Card</button>
+        className='mt-4 mb-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>New Card</button>
         )}
         { inPlay && (
           <button onClick= {stick}
-        className='mt-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>Stick</button>
+        className='mt-4 mb-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>Stick</button>
         )}
         </div>
         </div>
