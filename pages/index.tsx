@@ -290,7 +290,7 @@ setGameOver(false)
           <button onClick= {newCard}
         className='mt-4 mb-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>New Card</button>
         )}
-        { inPlay && (
+        { inPlay && gameOver == false &&(
           <button onClick= {stick}
         className='mt-4 mb-4 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded'>Stick</button>
         )}
